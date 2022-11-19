@@ -23,9 +23,12 @@ public class FileUpload {
         try{
             multipartRequest = new MultipartRequest(request, realPath, sizeLimit, "utf-8", new DefaultFileRenamePolicy());
         filename = multipartRequest.getFilesystemName("photo");
+
         one = new BoardVO();
         String seq = multipartRequest.getParameter("seq");
-        if(seq!=null&&!seq.equals("")) one.setSeq(Integer.parseInt(seq));
+        if(seq!=null&&!seq.equals(""))
+            one.setSeq(Integer.parseInt(seq));
+        one.setPhoto(multipartRequest.getParameter("photo"));
         one.setCategory(multipartRequest.getParameter("category"));
         one.setTitle(multipartRequest.getParameter("title"));
         one.setWriter(multipartRequest.getParameter("writer"));
@@ -45,10 +48,11 @@ public class FileUpload {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return one;
     }
 
-    private static void deleteFile(HttpServletRequest request, String filename) {
+    public static void deleteFile(HttpServletRequest request, String filename) {
     String filePath = request.getServletContext().getRealPath("upload");
 
     File f = new File(filePath + "/" + filename);

@@ -7,10 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 <h1>Add New Post</h1>
 <form action="addpost.jsp" method="post">
 <table>
+    <form method = 'post' action = 'fileupload.java' enctype="multipart/form-data">
+        <input type="file" name = "post">
+    </form>
     <tr><td>Category:</td><td><input type="text" name="category"/></td></tr>
 <tr><td>Title:</td><td><input type="text" name="title"/></td></tr>
 <tr><td>Writer:</td><td><input type="text" name="writer"/></td></tr>

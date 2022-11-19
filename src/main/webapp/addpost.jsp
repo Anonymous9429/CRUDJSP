@@ -4,6 +4,8 @@
 <%@ page import="com.example.util.FileUpload" %>
 <%@ page import="com.example.bean.BoardVO" %>
 
+
+%>
 <% request.setCharacterEncoding("utf-8"); %>
 
 <jsp:useBean id="u" class="com.example.bean.BoardVO" />
@@ -11,8 +13,8 @@
 
 <%
 	BoardDAO boardDAO = new BoardDAO();
-	FileUplaod.upload - new FileUpload();
-	BoardVO u = upload.uploadPhoto(request);
+	FileUpload upload = new FileUpload();
+	BoardVO U = upload.uploadPhoto(request);
 
 	int i = boardDAO.insertBoard(u);
 	String msg = "데이터 추가 성공 !";

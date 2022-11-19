@@ -12,8 +12,8 @@
 <%
 	BoardDAO boardDAO = new BoardDAO();
 
-	FileUplaod.upload - new FileUpload();
-	BoardVO u = upload.uploadPhoto(request);
+	FileUpload upload = new FileUpload();
+	BoardVO U = upload.uploadPhoto(request);
 
 	int i=boardDAO.updateBoard(u);
 	response.sendRedirect("posts.jsp");

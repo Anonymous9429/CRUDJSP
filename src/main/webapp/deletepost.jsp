@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="com.example.dao.BoardDAO, com.example.bean.BoardVO, com.example.util.FileUpload"%>
+<%@page import="com.example.dao.BoardDAO"%>
+<%@page import="com.example.bean.BoardVO"%>
+<%@page import ="com.example.util.FileUpload"%>
 <%
-	String seq = request.getParameter("seq");
-	if (seq != ""){
-		int id = Integer.parseInt(seq);
+	String sid = request.getParameter("id");
+	if (sid != ""){
+		int id = Integer.parseInt(sid);
 		BoardVO u = new BoardVO();
-		u.setSeq(id);
 		BoardDAO boardDAO = new BoardDAO();
+		u.setSeq(id);
 		String filename = boardDAO.getPhotoFilename(id);
 		if(filename != null)
 			FileUpload.deleteFile(request, filename);

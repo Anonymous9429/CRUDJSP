@@ -16,10 +16,11 @@
 	BoardVO u=boardDAO.getBoard(Integer.parseInt(id));
 %>
 
-<h1>Edit Form</h1>
+<h1>수정 페이지</h1>
 <form action="editpost.jsp" method="post">
 <input type="hidden" name="seq" value="<%=u.getSeq() %>"/>
 <table>
+	<tr><td>Photo : <input type="file" name="photo" value="<%=u.getPhoto()%>"></td></tr>
 	<tr><td>Category:</td><td><input type="text" name="Category" value="<%= u.getCategory()%>"/></td></tr>
 <tr><td>Title:</td><td><input type="text" name="title" value="<%= u.getTitle()%>"/></td></tr>
 <tr><td>Writer:</td><td><input type="text" name="writer" value="<%= u.getWriter()%>" /></td></tr>
